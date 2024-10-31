@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         primary: '#d9d9d9',
+        black_primary: '#292929',
         location_button: '#4CBB17',
       },
     },

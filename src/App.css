@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/*shadow */
+.box_shadow{
+  box-shadow: 3px 3px 0px 0px;
+}
