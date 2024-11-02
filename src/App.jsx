@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css'
 import ToggleButton from './component/header/ToggleButton'
+import Display_time from './component/header/display_time/Display_time';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -10,8 +11,9 @@ function App() {
 
   return (
     <>
-    <div className="container w-[100vw] h-full mx-10 body_color">
+    <div className="container w-[100vw] h-[100vh] mx-10 body_color">
       <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
+      <Display_time/>
     </div>
     </>
   )
