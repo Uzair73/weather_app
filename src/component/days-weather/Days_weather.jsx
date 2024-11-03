@@ -5,7 +5,7 @@ const Days_weather = () => {
     <>
     <div className="container my-4 mx-16 rounded-[18px] bg-primary font-[Poppins] box_shadow w-[23vw] h-[37vh] opacity-[1.3]">
         <div className='flex flex-col justify-center items-center'>
-        <div className='font-bold text-2xl text-black_primary my-3'>5 Days ForeCast</div>
+        <div className='font-extrabold text-2xl text-black_primary my-3'>5 Days Forecast:</div>
       <div className='flex flex-col space-x-4'>
         {days_data.map((item) => {
           return (
