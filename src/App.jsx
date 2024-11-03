@@ -3,7 +3,7 @@ import './App.css'
 import ToggleButton from './component/header/ToggleButton'
 import Display_time from './component/header/display_time/Display_time';
 import Weather_details from './component/header/weather-details/Weather_details';
-
+import Days_weather from './component/days-weather/Days_weather';
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const toggleTheme = () => {
@@ -18,6 +18,7 @@ function App() {
       <Display_time/>
       <Weather_details/>
       </div>
+      <Days_weather/>
     </div>
     </>
   )
