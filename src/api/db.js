@@ -88,3 +88,42 @@ export const days_data = [
     temperature: "21°C"
   }
 ]
+
+
+// dummy data for the hourly  forecast
+ const hourly_data = [
+  {
+    id: 1,
+    time: "10:00",
+    temperature: "18°C",
+    humidity: "60%",
+    wind: "10 km/h",
+    icon: "https://example.com/icon1.png"
+    },
+  {
+    id: 2,
+    time: "16:00",
+    temperature: "33°C",
+    humidity: "60%",
+    wind: "33 km/h",
+    icon: "https://example.com/icon1.png"
+    },
+  {
+    id: 3,
+    time: "05:00",
+    temperature: "45°C",
+    humidity: "60%",
+    wind: "10 km/h",
+    icon: "https://example.com/icon1.png"
+    },
+  {
+    id: 4,
+    time: "20:00",
+    temperature: "15°C",
+    humidity: "60%",
+    wind: "22 km/h",
+    icon: "https://example.com/icon1.png"
+    },
+]
+
+export default hourly_data
