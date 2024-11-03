@@ -10,3 +10,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.bg-color-forecast {
+  background: linear-gradient(90deg, #F88508 0%, #F6FAD9 100%);
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: transparent;
+}
