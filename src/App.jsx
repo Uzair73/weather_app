@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-    <div className="container w-[100vw] h-[100vh] mx-10 body_color">
+    <div className="w-[100vw] h-[100vh] body_color">
       <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       <div className='flex justify-between'>
       <Display_time/>
