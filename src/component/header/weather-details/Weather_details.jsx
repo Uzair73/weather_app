@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { current_weather_api } from '../../../api/weather_api'
-import sunny_pic from '../../../../public/images/clear 1.svg'
+import { current_weather_api,days_weather_data } from '../../../api/weather_api'
+
+// main weather forcast icons
 import humidity_pic from '../../../../public/images/humidity 1.svg'
 import pressure_pic from '../../../../public/images/pressure-white 1.svg'
 import sunrise_pic from '../../../../public/images/sunrise-white 1.svg'
@@ -8,30 +9,66 @@ import sunset_pic from '../../../../public/images/sunset-white 1.svg'
 import uv_pic from '../../../../public/images/uv-white 1.svg'
 import wind_pic from '../../../../public/images/wind 1.svg'
 
+// weather conditions ions
+import sunny_pic from '../../../../public/images/clear 1.svg'
+import clouds_img from '../../../../public/images/clouds 1.svg'
+import drizzle_img from '../../../../public/images/drizzle 1.svg'
+import mist_img from '../../../../public/images/mist 1.svg'
+import rain_mist from '../../../../public/images/rain 1.svg'
+import snow_img from '../../../../public/images/snow 1.svg'
+
 const Weather_details = () => {
     const [weatherData, setWeatherData] = useState(null)
+    const weather_icon = {
+        "01d": sunny_pic,
+        "01n": sunny_pic,
+        "02d": clouds_img,
+        "02n": clouds_img,
+        "03d": clouds_img,
+        "03n": clouds_img,
+        "04d": clouds_img,
+        "04n": clouds_img,
+        "09d": drizzle_img,
+        "09n": drizzle_img,
+        "10d": rain_mist,
+        "10n": rain_mist,
+        "11d": rain_mist,
+        "11n": rain_mist,
+        "12d": snow_img,
+        "12n": snow_img,
+        "50d": mist_img,
+        "50n": mist_img
+    }
 
     // fetch the data
     useEffect(() => {
         const fetch_data = async () => {
-            const response = await current_weather_api('new york')
-            console.log("fetch the data in weather_details>>", response.data);
+            const response = await current_weather_api('Edmonton',)
+            // console.log("fetch the data in weather_details>>", response.data);
+            const all_icons = weather_icon[response.data.weather[0].icon] || sunny_pic
             setWeatherData({
                 temp: response.data.main.temp,
                 tempFahrenheit: (response.data.main.temp * 9/5) + 32,
                 condition: response.data.weather[0].main,
-                conditionIcon: response.data.weather[0].icon,
+                conditionIcon: all_icons,
                 humidity: response.data.main.humidity,
                 pressure: response.data.main.pressure,
-                sunrise: new Date(response.data.sys.sunrise * 1000).toLocaleTimeString(),
-                sunset: new Date(response.data.sys.sunset * 1000).toLocaleTimeString(),
+                sunrise: new Date(response.data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                sunset: new Date(response.data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                 wind: response.data.wind.speed,
                 uv: response.data.wind.deg // Assuming this is a placeholder for actual UV index data
             })
-            console.log("img_data>>",weatherData.conditionIcon);
+            // console.log("img_data>>",weatherData.conditionIcon);
             
         }
         fetch_data()
+
+        // const days_data = async ()=>{
+        //     const res = await days_weather_data(51.5085,-0.1257)
+        //     const res_data = res.data
+        //     console.log("days forcast data>>", res_data);
+        // }
+        // days_data()
     }, [])
 
     return (
@@ -43,12 +80,12 @@ const Weather_details = () => {
                         <div className="box1 flex-col">
                             <h1 className='my-2 mx-2 text-6xl gradient-text'>{weatherData.tempFahrenheit.toFixed(0)}°F</h1>
                             <span className='text-md'>Feels like: <span className='text-black_primary opacity-[80%] text-xl p-1 font-bold'>{weatherData.temp.toFixed(0)}°C</span></span>
-                            <div className='mt-8 '>
+                            <div className='mt-5 '>
                                 {/* sun rise */}
                                 <div className='flex'>
                                     <img src={sunrise_pic} alt="sunrise" className='mx-4 w-[35px]' />
                                     <div className='flex-col'>
-                                        <p className='text-sm font-bold'>Sunrise</p>
+                                        <p className='text-md font-bold'>Sunrise</p>
                                         <p className='font-semibold w-[70px]'>{weatherData.sunrise}</p>     
                                     </div>
                                 </div>
@@ -58,7 +95,7 @@ const Weather_details = () => {
                                 <div className='flex'>
                                     <img src={sunset_pic} alt="sunset" className='mx-4 w-[35px]' />
                                     <div className='flex-col'>
-                                        <p className='text-sm font-bold'>Sunset</p>
+                                        <p className='text-md font-bold'>Sunset</p>
                                         <p className='font-semibold w-[75px]'>{weatherData.sunset}</p>
                                     </div>
                                 </div>
@@ -66,7 +103,7 @@ const Weather_details = () => {
                         </div>
                         {/* Box-2 */}
                         <div className="box2 my-5 mx-3 flex flex-col justify-center items-center">
-                            <img src={`https://openweathermap.org/img/wn/${weatherData.conditionIcon}@2x.png`} alt="condition" className='w-[13vw] h-[23vh]' />
+                            <img src={weatherData.conditionIcon} alt="condition" className='w-[13vw] h-[23vh]' />
                             <h3 className='text-2xl font-bold'>{weatherData.condition}</h3>
                         </div>
                         {/* Box-3 */}
@@ -78,7 +115,7 @@ const Weather_details = () => {
                             </div>
                             <div className="box-b px-2 flex flex-col justify-center items-center">
                                 <img src={wind_pic} alt="wind" className='w-[35px] py-2'/>
-                                <h1 className='font-bold text-lg'>{weatherData.wind}km/h</h1>
+                                <h1 className='font-bold text-lg'>{weatherData.wind.toFixed(0)}km/h</h1>
                                 <h1 className=' text-lg'>Wind Speed</h1>
                             </div>
                             <div className="box-c mx-5 flex flex-col justify-center items-center">

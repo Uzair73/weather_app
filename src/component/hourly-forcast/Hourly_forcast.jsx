@@ -3,7 +3,7 @@ import hourly_data from '../../api/db';
 
 const HourlyForecast = () => {
   return (
-    <div className="mx-auto my-4 px-4 py-6 w-[90vw] max-w-[800px] rounded-[18px] shadow-md font-[Poppins] bg-primary box_shadow">
+    <div className="mx-auto my-4 h-80 px-4 py-6 w-[90vw] max-w-[800px] rounded-[18px] shadow-md font-[Poppins] bg-primary box_shadow">
       <h2 className="text-center font-semibold text-xl mb-4">Hourly Forecast:</h2>
       <div className="flex justify-evenly">
         {hourly_data.map((hour, i) => (

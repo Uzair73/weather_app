@@ -1,0 +1,21 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g filter="url(#filter0_d_snow)">
+    <rect x="4" y="4" width="60" height="60" fill="url(#pattern_snow)" shape-rendering="crispEdges"/>
+  </g>
+  <defs>
+    <filter id="filter0_d_snow" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="2"/>
+      <feGaussianBlur stdDeviation="1.5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.9 0 0 0 0 0.95 0 0 0 0 1 0 0 0 0.3 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_snow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_snow" result="shape"/>
+    </filter>
+    <pattern id="pattern_snow" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image_snow" transform="scale(0.00446429)"/>
+    </pattern>
+    <image id="image_snow" width="224" height="224" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAYAAAAaLWrhAAAAAXNSR0IArs4c6QAAFotJREFUeAHtnQeQAUEQhwGXy36hwICD5AJuIkZIFZF0KSV0F0ikUibQpFAEYJFN00SIFCmX4R0L59uYmA///tm5dfv7M5+++3//X/6/B3A9n/AAAAASUVORK5CYII="/>
+  </defs>
+</svg>
