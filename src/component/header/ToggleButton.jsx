@@ -3,7 +3,14 @@ import React from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 
-function Header({ onToggleTheme, isDarkMode }) {
+function Header({ onToggleTheme, isDarkMode, data_search,set_DataSearch}) {
+
+  // login for press the enter key button
+  const handlePress = (e) => {
+    if (e.key === 'Enter') {
+      console.log('Enter key pressed');
+      }
+    }
   return (
     <header className="flex items-center justify-between p-4">
       <div 
@@ -23,6 +30,9 @@ function Header({ onToggleTheme, isDarkMode }) {
   <input
     type="text"
     placeholder="Search for your preferred city..."
+    value={data_search}
+    onChange={(e)=>{set_DataSearch(e.target.value)}}
+    onKeyPress={handlePress}
     className="pl-10 p-2 w-full rounded-full border border-gray-300 focus:outline-none"
   />
 </div>
