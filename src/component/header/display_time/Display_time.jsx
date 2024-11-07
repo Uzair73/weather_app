@@ -8,7 +8,7 @@ const Display_time = () => {
     useEffect(() => {
         const fetch_weather_data = async () => {
             const data = await current_weather_api('new york') // Assuming the function can take a city parameter
-            console.log("london weather data>>", data.data);
+            // console.log("london weather data>>", data.data);
             setWeather_data({
                 city_name: data.data.name,
                 time: data.data.dt,
@@ -18,7 +18,7 @@ const Display_time = () => {
         fetch_weather_data()
     }, [])
 
-    console.log(time)
+    // console.log(time)
     return (
         <>
             <div className="mx-16 px-4 container flex flex-col justify-center items-center w-[23vw] h-[31vh] border border-[#000000] rounded-[18px] bg-primary font-[Poppins] box_shadow">

@@ -43,8 +43,8 @@ const Weather_details = () => {
     // fetch the data
     useEffect(() => {
         const fetch_data = async () => {
-            const response = await current_weather_api('Edmonton',)
-            // console.log("fetch the data in weather_details>>", response.data);
+            const response = await current_weather_api('new delhi',)
+            console.log("fetch the data in weather_details>>", response.data);
             const all_icons = weather_icon[response.data.weather[0].icon] || sunny_pic
             setWeatherData({
                 temp: response.data.main.temp,
@@ -56,19 +56,11 @@ const Weather_details = () => {
                 sunrise: new Date(response.data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                 sunset: new Date(response.data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                 wind: response.data.wind.speed,
-                uv: response.data.wind.deg // Assuming this is a placeholder for actual UV index data
+                uv: response.data.wind.deg
             })
             // console.log("img_data>>",weatherData.conditionIcon);
-            
         }
         fetch_data()
-
-        // const days_data = async ()=>{
-        //     const res = await days_weather_data(51.5085,-0.1257)
-        //     const res_data = res.data
-        //     console.log("days forcast data>>", res_data);
-        // }
-        // days_data()
     }, [])
 
     return (
