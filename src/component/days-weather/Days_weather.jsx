@@ -9,7 +9,7 @@ import mist_img from '../../../public/images/mist 1.svg'
 import rain_mist from '../../../public/images/rain 1.svg'
 import snow_img from '../../../public/images/snow 1.svg'
 
-const Days_weather = () => {
+const Days_weather = ({latitude, longitude}) => {
   const [forecastData, setForecastData] = useState([])
 
   const weather_icon = {
@@ -35,7 +35,8 @@ const Days_weather = () => {
 
   useEffect(() => {
     const fetch_data = async () => {
-      const res = await days_weather_data(60.7143, 3.1257)
+      if (latitude && longitude) {
+      const res = await days_weather_data(latitude, longitude)
       // console.log("data of the days>>", res.data);
       
       if (res.data && res.data.list.length > 0) {
@@ -47,8 +48,9 @@ const Days_weather = () => {
         setForecastData(fiveDayForecast);
       }
     }
-    fetch_data()
-  }, [])
+  }
+  fetch_data()
+  }, [latitude, longitude])
 
   return (
     <>

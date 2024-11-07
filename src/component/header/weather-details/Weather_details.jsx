@@ -17,7 +17,7 @@ import mist_img from '../../../../public/images/mist 1.svg'
 import rain_mist from '../../../../public/images/rain 1.svg'
 import snow_img from '../../../../public/images/snow 1.svg'
 
-const Weather_details = () => {
+const Weather_details = ({data_search}) => {
     const [weatherData, setWeatherData] = useState(null)
     const weather_icon = {
         "01d": sunny_pic,
@@ -43,7 +43,8 @@ const Weather_details = () => {
     // fetch the data
     useEffect(() => {
         const fetch_data = async () => {
-            const response = await current_weather_api('new delhi',)
+            if(data_search){
+            const response = await current_weather_api(data_search)
             console.log("fetch the data in weather_details>>", response.data);
             const all_icons = weather_icon[response.data.weather[0].icon] || sunny_pic
             setWeatherData({
@@ -58,10 +59,11 @@ const Weather_details = () => {
                 wind: response.data.wind.speed,
                 uv: response.data.wind.deg
             })
+            }
             // console.log("img_data>>",weatherData.conditionIcon);
         }
         fetch_data()
-    }, [])
+    }, [data_search])
 
     return (
         <>

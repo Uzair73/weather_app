@@ -14,7 +14,7 @@ import wind_straight from '/images/navigation 1.svg'
 import wind_left from '/images/navigation 2.svg'
 import wind_right from '/images/navigation 3.svg'
 
-const HourlyForecast = () => {
+const HourlyForecast = ({latitude, longitude}) => {
   const [forecastData, setForecastData] = useState([])
 
   // icons of weather
@@ -56,14 +56,15 @@ const HourlyForecast = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await days_weather_data(28.6128, 73.1338)
+      if (latitude && longitude) {
+      const res = await days_weather_data(latitude, longitude)
       console.log("res of data in hourly forecast>>", res.data);
       const hourlyForecast = res.data.list.slice(0, 5).map(hour => {
         const weather_icons = weather_icon[hour.weather[0].icon] || sunny_pic
         const directions_icons = getWindDirectionIcon(hour.wind.deg)
         return {
           date: new Date(hour.dt * 1000).toLocaleDateString(),
-          time: new Date(hour.dt * 1000).toLocaleTimeString("es-US",{hour: "2-digit", minute: "2-digit", timeZone: 'UTC'}),
+          time: new Date(hour.dt * 1000).toLocaleTimeString("es-US",{hour: "2-digit", minute: "2-digit", hour12: false, timeZone: 'UTC'}),
           temperature: Math.floor(hour.main.temp),
           windSpeed: Math.floor(hour.wind.speed),
           wind_deg: hour.wind.deg,
@@ -74,26 +75,26 @@ const HourlyForecast = () => {
       console.log("time issues>>",  hourlyForecast);
       setForecastData(hourlyForecast.slice(0, 5))
     }
+  }
     fetchData()
-  }, [])
+  }, [latitude, longitude])
 
   return (
     <div className="mx-auto my-4 h-80 px-4 py-6 w-[90vw] max-w-[800px] rounded-[18px] shadow-md font-[Poppins] bg-primary box_shadow">
       <h2 className="text-center font-semibold text-xl mb-4">Hourly Forecast:</h2>
       <div className="flex justify-evenly">
         {forecastData.map((hour, i) => (
-          <div key={i} className={`w-[15vw] max-w-[90px] p-4 rounded-[18px] flex flex-col items-center text-center ${
-              i % 2 === 0 ? 'bg-[#F88508]' : 'bg-[#443D64] text-white'
-            }`}
+          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center gradient_bg text-black`}
           >
-            <span className="text-lg font-semibold">{hour.time}</span>
-            <img src={hour.icons_weather} alt="weather icon" className="w-10 h-10 my-2" />
-            <span className="text-lg font-semibold">{`${hour.temperature}°C`}</span>
+            <span className="text-xl font-semibold w-28">{hour.time.slice(0,5)}</span>
+            <img src={hour.icons_weather} alt="weather icon" className="h-16 my-2" />
+            <span className="text-xl font-semibold">{`${hour.temperature}°C`}</span>
             <img src={hour.icon_directions} alt="wind direction" className="h-10" />
-            <span className="text-sm mt-1">{`${hour.windSpeed} m/s`}</span>
+            <span className="text-xl font-bold mt-1">{`${hour.windSpeed} m/s`}</span>
           </div>
         ))}
       </div>
+    {forecastData.length === 0 && <div className='mx-auto'>Loading Hourly data...</div>}
     </div>
   );
 };
