@@ -14,7 +14,7 @@ import wind_straight from '/images/navigation 1.svg'
 import wind_left from '/images/navigation 2.svg'
 import wind_right from '/images/navigation 3.svg'
 
-const HourlyForecast = ({latitude, longitude}) => {
+const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
   const [forecastData, setForecastData] = useState([])
 
   // icons of weather
@@ -80,11 +80,11 @@ const HourlyForecast = ({latitude, longitude}) => {
   }, [latitude, longitude])
 
   return (
-    <div className="mx-auto my-4 h-80 px-4 py-6 w-[90vw] max-w-[800px] rounded-[18px] shadow-md font-[Poppins] bg-primary box_shadow">
-      <h2 className="text-center font-semibold text-xl mb-4">Hourly Forecast:</h2>
-      <div className="flex justify-evenly">
+    <div className={`mx-auto my-4 h-auto px-4 py-6 w-[90vw] max-w-[736px] rounded-[18px] shadow-md font-[touche-bold] box_shadow ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
+      <h2 className={`text-center font-semibold text-xl mb-4 ${isDarkMode ? "text-white" : "text-black"}`}>Hourly Forecast:</h2>
+      <div className={`flex justify-evenly`}>
         {forecastData.map((hour, i) => (
-          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center gradient_bg text-black`}
+          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center gradient_bg text-black ${isDarkMode ? "text-white" : "text-black"}`}
           >
             <span className="text-xl font-semibold w-28">{hour.time.slice(0,5)}</span>
             <img src={hour.icons_weather} alt="weather icon" className="h-16 my-2" />

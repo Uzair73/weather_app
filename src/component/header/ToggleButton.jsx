@@ -16,7 +16,7 @@ function Header({ onToggleTheme, isDarkMode, data_search,set_DataSearch}) {
       <div 
         onClick={onToggleTheme} 
         className={`w-20 px-2 h-8 flex items-center border border-black rounded-full p-1 cursor-pointer transition-colors duration-300  ${
-          isDarkMode ? 'bg-gray-800' : 'bg-gray-300'
+          isDarkMode ? 'bg-primary' : 'bg-gray-300'
         }`}
       >
         <div
@@ -28,7 +28,7 @@ function Header({ onToggleTheme, isDarkMode, data_search,set_DataSearch}) {
     <div className="relative w-[30vw]">
   <IoSearchOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
   <input
-    type="text"
+    type="search"
     placeholder="Search for your preferred city..."
     value={data_search}
     onChange={(e)=>{set_DataSearch(e.target.value)}}

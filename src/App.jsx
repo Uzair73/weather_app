@@ -34,15 +34,15 @@ function App() {
 
   return (
     <>
-    <div className="w-[100vw] h-[100vh] body_color">
+    <div className={`w-auto h-auto ${isDarkMode ? "bg-[#1E1E1E]" : "body_color"}`}>
       <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode} data_search={search} set_DataSearch={setSearch}/>
       <div className='flex justify-between'>
-      <Display_time data_search={search}/>
-      <Weather_details data_search={search}/>
+      <Display_time data_search={search} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
+      <Weather_details data_search={search} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </div>
       <div className=' flex justify-between'>      
-      <Days_weather latitude={latitude} longitude={longitude}/>
-      <Hourly_forcast latitude={latitude} longitude={longitude}/>
+      <Days_weather latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
+      <Hourly_forcast latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </div>
 
     </div>

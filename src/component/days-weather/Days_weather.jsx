@@ -9,7 +9,7 @@ import mist_img from '../../../public/images/mist 1.svg'
 import rain_mist from '../../../public/images/rain 1.svg'
 import snow_img from '../../../public/images/snow 1.svg'
 
-const Days_weather = ({latitude, longitude}) => {
+const Days_weather = ({latitude, longitude, isDarkMode}) => {
   const [forecastData, setForecastData] = useState([])
 
   const weather_icon = {
@@ -54,9 +54,9 @@ const Days_weather = ({latitude, longitude}) => {
 
   return (
     <>
-      <div className="container my-4 mx-16 rounded-[18px] bg-primary font-[Poppins] box_shadow w-[23vw] h-auto opacity-[1.3]">
-        <div className='flex flex-col justify-center items-center'>
-          <div className='font-extrabold text-2xl text-black_primary my-3'>5-Day Forecast:</div>
+      <div className={`container my-4  mx-16 rounded-[18px] font-[Poppins] box_shadow w-[28vw] h-auto min-h-[30vh] opacity-[1.3] ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
+        <div className={`flex flex-col justify-center items-center ${isDarkMode ? "text-white" : "text-black"}`}>
+          <div className={`font-extrabold text-2xl my-3 ${isDarkMode ? "text-white" : "text-black_primary"}`}>5-Day Forecast:</div>
           {forecastData.length > 0 ? (
             forecastData.map((forecast, index) => (
               <div key={index} className='flex px-3'>
