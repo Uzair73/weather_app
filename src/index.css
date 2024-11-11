@@ -5,6 +5,9 @@
 .body_color {
   background: linear-gradient(90deg, rgba(217, 217, 217, 1) 6%, rgba(0, 0, 0, 1) 150%);
 }
+.body_color_dark {
+  background: linear-gradient(240deg, rgba(56, 56, 56, 1) 150%, rgba(158, 158, 158, 1) 0%);
+}
 .gradient-text {
   background: linear-gradient(90deg, #292929 0%, #FFFFFF 190%);
   -webkit-background-clip: text;

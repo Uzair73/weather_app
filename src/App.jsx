@@ -9,11 +9,16 @@ import {current_weather_api} from "./api/weather_api"
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [search, setSearch] = useState('');
+  const [tempsearch, setTempSearch] = useState('');
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  const handleSearch = (cityName) => {
+    setSearch(cityName.trim());
   };
 
   useEffect(() => {
@@ -34,8 +39,8 @@ function App() {
 
   return (
     <>
-    <div className={`w-auto h-auto ${isDarkMode ? "bg-[#1E1E1E]" : "body_color"}`}>
-      <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode} data_search={search} set_DataSearch={setSearch}/>
+    <div className={`w-auto h-auto ${isDarkMode ? "body_color_dark" : "body_color"}`}>
+      <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode} data_search={search} temp_search={tempsearch} setTempSearch={setTempSearch} set_DataSearch={handleSearch}/>
       <div className='flex justify-between'>
       <Display_time data_search={search} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       <Weather_details data_search={search} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>

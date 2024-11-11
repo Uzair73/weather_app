@@ -84,7 +84,7 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
       <h2 className={`text-center font-semibold text-xl mb-4 ${isDarkMode ? "text-white" : "text-black"}`}>Hourly Forecast:</h2>
       <div className={`flex justify-evenly`}>
         {forecastData.map((hour, i) => (
-          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center gradient_bg text-black ${isDarkMode ? "text-white" : "text-black"}`}
+          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center ${isDarkMode ? "bg-[#373636]" : "gradient_bg"} text-black ${isDarkMode ? "text-white" : "text-black"}`}
           >
             <span className="text-xl font-semibold w-28">{hour.time.slice(0,5)}</span>
             <img src={hour.icons_weather} alt="weather icon" className="h-16 my-2" />
@@ -94,7 +94,7 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
           </div>
         ))}
       </div>
-    {forecastData.length === 0 && <div className='mx-auto'>Loading Hourly data...</div>}
+    {forecastData.length === 0 && <div className={`mx-auto flex justify-center items-center ${isDarkMode ? "text-white" : "text-black"}`}>Loading Hourly data...</div>}
     </div>
   );
 };

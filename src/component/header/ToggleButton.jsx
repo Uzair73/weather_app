@@ -3,12 +3,13 @@ import React from 'react';
 import { IoSearchOutline } from "react-icons/io5";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 
-function Header({ onToggleTheme, isDarkMode, data_search,set_DataSearch}) {
+function Header({ onToggleTheme, isDarkMode, temp_search, setTempSearch ,set_DataSearch}) {
 
   // login for press the enter key button
   const handlePress = (e) => {
     if (e.key === 'Enter') {
       console.log('Enter key pressed');
+      set_DataSearch(e.target.value)
       }
     }
   return (
@@ -26,14 +27,14 @@ function Header({ onToggleTheme, isDarkMode, data_search,set_DataSearch}) {
         />
       </div>
     <div className="relative w-[30vw]">
-  <IoSearchOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
+  <IoSearchOutline onClick={()=>{set_DataSearch(temp_search)}} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6 hover:cursor-pointer" />
   <input
     type="search"
     placeholder="Search for your preferred city..."
-    value={data_search}
-    onChange={(e)=>{set_DataSearch(e.target.value)}}
+    // value={data_search}
+    onChange={(e)=>{setTempSearch(e.target.value)}}
     onKeyPress={handlePress}
-    className="pl-10 p-2 w-full rounded-full border border-gray-300 focus:outline-none"
+    className={`pl-10 p-2 w-full rounded-full border ${isDarkMode ? "bg-[#444444]" : ""} ${isDarkMode ? "text-white" : ""} border-gray-300 focus:outline-none`}
   />
 </div>
       <button className="bg-location_button text-white p-2 rounded-full flex items-center">

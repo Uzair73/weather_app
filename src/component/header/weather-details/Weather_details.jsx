@@ -65,6 +65,8 @@ const Weather_details = ({data_search, isDarkMode}) => {
                 wind: response.data.wind.speed,
                 uv: response.data.wind.deg
             })
+            } else{
+                setWeatherData(null)
             }
             // console.log("img_data>>",weatherData.conditionIcon);
         }
@@ -131,7 +133,7 @@ const Weather_details = ({data_search, isDarkMode}) => {
                         </div>
                     </div>
                 ) : (
-                    <p className={`${isDarkMode ? "text-white" : "text-black"}`}>Loading weather data...</p>
+                    <p className={`${isDarkMode ? "text-white" : "text-black"} mx-auto flex items-center`}>Loading weather data...</p>
                 )}
             </div>
         </>
