@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { time_data } from '../../../api/db'
 import { current_weather_api } from '../../../api/weather_api'
 
-const Display_time = ({data_search, onToggleTheme, isDarkMode}) => {
+const Display_time = ({data_search, isDarkMode}) => {
     // const [time, setTime] = useState(time_data)
     const [weather_data, setWeather_data] = useState(null)
 
@@ -36,7 +36,6 @@ const Display_time = ({data_search, onToggleTheme, isDarkMode}) => {
 
     return (
         <div
-        onClick={onToggleTheme} 
         className={`mx-16 px-4 container flex flex-col justify-center items-center w-[28vw] h-auto min-h-[30vh] border border-[#000000] rounded-[18px] ${isDarkMode ? 'bg-[#444444]' : 'bg-primary'}  font-[Poppins] box_shadow`}>
             {weather_data ? (
                 <div className='flex flex-col items-center '>
