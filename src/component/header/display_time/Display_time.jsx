@@ -36,7 +36,7 @@ const Display_time = ({data_search, isDarkMode}) => {
 
     return (
         <div
-        className={`mx-16 px-4 container flex flex-col justify-center items-center w-[28vw] h-auto min-h-[30vh] border border-[#000000] rounded-[18px] ${isDarkMode ? 'bg-[#444444]' : 'bg-primary'}  font-[Poppins] box_shadow`}>
+        className={`mx-16 max-sm:mx-2 px-4 container flex flex-col justify-center items-center w-[28vw] max-sm:w-auto h-auto min-h-[30vh] max-sm:min-h-40 border border-[#000000] rounded-[18px] ${isDarkMode ? 'bg-[#444444]' : 'bg-primary'}  font-[Poppins] box_shadow`}>
             {weather_data ? (
                 <div className='flex flex-col items-center '>
                     <h1 className={`font-bold p-3 text-lg ${isDarkMode ? "text-white" : "text-black"}`}>{weather_data.city_name}, <span>{weather_data.country_name}</span></h1>

@@ -82,9 +82,9 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
   return (
     <div className={`mx-auto my-4 h-auto px-4 py-6 w-[90vw] max-w-[736px] rounded-[18px] shadow-md font-[touche-bold] box_shadow ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
       <h2 className={`text-center font-semibold text-xl mb-4 ${isDarkMode ? "text-white" : "text-black"}`}>Hourly Forecast:</h2>
-      <div className={`flex justify-evenly`}>
+      <div className={`flex max-sm:flex-col justify-evenly`}>
         {forecastData.map((hour, i) => (
-          <div key={i} className={`w-[15vw] max-w-[100px] px-6 py-5 rounded-[35px] flex flex-col items-center text-center ${isDarkMode ? "bg-[#373636]" : "gradient_bg"} text-black ${isDarkMode ? "text-white" : "text-black"}`}
+          <div key={i} className={`w-[15vw] max-w-[100px] max-sm:min-w-[60vw] px-6 max-sm:my-2 max-sm:mx-7 py-5 rounded-[35px] flex flex-col items-center text-center ${isDarkMode ? "bg-[#373636]" : "gradient_bg"} text-black ${isDarkMode ? "text-white" : "text-black"}`}
           >
             <span className="text-xl font-semibold w-28">{hour.time.slice(0,5)}</span>
             <img src={hour.icons_weather} alt="weather icon" className="h-16 my-2" />

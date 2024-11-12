@@ -54,7 +54,7 @@ const Days_weather = ({latitude, longitude, isDarkMode}) => {
 
   return (
     <>
-      <div className={`container my-4  mx-16 rounded-[18px] font-[Poppins] box_shadow w-[28vw] h-auto min-h-[30vh] opacity-[1.3] ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
+      <div className={`container my-4 mx-16 max-sm:mx-2 rounded-[18px] font-[Poppins] box_shadow w-[28vw] max-sm:w-auto h-auto min-h-[30vh] opacity-[1.3] ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
         <div className={`flex flex-col justify-center items-center ${isDarkMode ? "text-white" : "text-black"}`}>
           <div className={`font-extrabold text-2xl my-3 ${isDarkMode ? "text-white" : "text-black_primary"}`}>5-Day Forecast:</div>
           {forecastData.length > 0 ? (
