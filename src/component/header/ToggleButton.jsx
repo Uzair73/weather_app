@@ -65,7 +65,7 @@ function Header({ onToggleTheme, isDarkMode, temp_search, setTempSearch, set_Dat
             placeholder="Search for your preferred city..."
             onChange={(e) => { setTempSearch(e.target.value) }}
             onKeyPress={handlePress}
-            className={`pl-10 p-2 w-full rounded-full border ${isDarkMode ? "bg-[#444444]" : ""} ${isDarkMode ? "text-white" : ""} border-gray-300 focus:outline-none`}
+            className={`pl-10 p-2 w-full rounded-full border border-black ${isDarkMode ? "bg-[#444444]" : "bg-primary"} ${isDarkMode ? "text-white" : ""} focus:outline-none`}
           />
         </div>
 

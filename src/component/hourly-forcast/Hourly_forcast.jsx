@@ -80,7 +80,7 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
   }, [latitude, longitude])
 
   return (
-    <div className={`mx-auto my-4 h-auto px-4 py-6 w-[90vw] max-w-[736px] rounded-[18px] shadow-md font-[touche-bold] box_shadow ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
+    <div className={`mx-auto my-4 max-sm:border max-sm:border-[#000000] h-auto px-4 py-6 w-[90vw] max-w-[736px] rounded-[18px] shadow-md font-[touche-bold] box_shadow ${isDarkMode ? "bg-[#444444]" : "bg-primary"}`}>
       <h2 className={`text-center font-semibold text-xl mb-4 ${isDarkMode ? "text-white" : "text-black"}`}>Hourly Forecast:</h2>
       <div className={`flex max-sm:flex-col justify-evenly`}>
         {forecastData.map((hour, i) => (

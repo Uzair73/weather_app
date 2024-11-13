@@ -43,7 +43,7 @@ const Display_time = ({data_search, isDarkMode}) => {
                 <h1 className={`font-extrabold text-4xl mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
                         {formatTime(weather_data.time, weather_data.timezone)}
                     </h1>
-                    <p className={`text-xl mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
+                    <p className={`text-sm mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
                         {formatDate(weather_data.time, weather_data.timezone)}
                     </p>
                 </div>
