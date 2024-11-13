@@ -58,7 +58,7 @@ function App() {
       <Days_weather latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       <Hourly_forcast latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </div>
-
+        <span className='my-28 font-bold mb-0 flex justify-center items-center text-red-600'>Develop by Uzair Hakeem</span>
     </div>
     </>
   )
