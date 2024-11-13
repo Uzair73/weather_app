@@ -44,13 +44,17 @@ function App() {
 
   return (
     <>
-    <div className={`w-auto min-h-[100vh] h-auto ${isDarkMode ? "body_color_dark" : "body_color"}`}>
+    <div className={`w-auto min-h-[100vh] max-sm:overflow-clip h-auto ${isDarkMode ? "body_color_dark" : "body_color"}`}>
       <ToggleButton onToggleTheme={toggleTheme} isDarkMode={isDarkMode} data_search={search} temp_search={tempsearch} setTempSearch={setTempSearch} set_DataSearch={handleSearch} updateCoordinates={updateCoordinates}/>
-      <div className='flex justify-between'>
+
+
+      <div className='flex justify-between max-sm:flex-col'>
       <Display_time data_search={search} isDarkMode={isDarkMode} updateCoordinates={updateCoordinates} latitude={latitude} longitude={longitude}/>
       <Weather_details data_search={search} isDarkMode={isDarkMode}/>
       </div>
-      <div className=' flex justify-between'>      
+
+
+      <div className=' flex justify-between max-sm:flex-col'>      
       <Days_weather latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       <Hourly_forcast latitude={latitude} longitude={longitude} onToggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
       </div>

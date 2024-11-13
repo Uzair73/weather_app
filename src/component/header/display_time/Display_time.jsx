@@ -36,14 +36,14 @@ const Display_time = ({data_search, isDarkMode}) => {
 
     return (
         <div
-        className={`mx-16 px-4 container flex flex-col justify-center items-center w-[28vw] h-auto min-h-[30vh] border border-[#000000] rounded-[18px] ${isDarkMode ? 'bg-[#444444]' : 'bg-primary'}  font-[Poppins] box_shadow`}>
+        className={`mx-16 max-sm:mx-2 px-4 container flex flex-col justify-center items-center w-[28vw] max-sm:w-auto h-auto min-h-[30vh] max-sm:min-h-40 border border-[#000000] rounded-[18px] ${isDarkMode ? 'bg-[#444444]' : 'bg-primary'}  font-[Poppins] box_shadow`}>
             {weather_data ? (
                 <div className='flex flex-col items-center '>
                     <h1 className={`font-bold p-3 text-lg ${isDarkMode ? "text-white" : "text-black"}`}>{weather_data.city_name}, <span>{weather_data.country_name}</span></h1>
                 <h1 className={`font-extrabold text-4xl mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
                         {formatTime(weather_data.time, weather_data.timezone)}
                     </h1>
-                    <p className={`text-xl mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
+                    <p className={`text-sm mx-1 text-black_primary ${isDarkMode ? "text-white" : "text-black"}`}>
                         {formatDate(weather_data.time, weather_data.timezone)}
                     </p>
                 </div>
