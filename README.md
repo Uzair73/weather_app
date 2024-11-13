@@ -9,6 +9,12 @@ This project is a dynamic Weather App built using React and powered by the Open 
 - Dark mode: Supports a toggle between light and dark themes for user preference.
 - Responsive design: Ensures a seamless experience on both desktop and mobile devices.
 
+## UI Design
+
+The user interface of this Weather App was meticulously crafted using React, incorporating the functionality to switch between dark and light modes. This feature not only caters to user preference but also adapts to various lighting conditions, ensuring the app's content is always accessible and comfortable to view.
+![Screenshot 2024-11-13 114937](https://github.com/user-attachments/assets/53fb76b8-68c1-4adb-8b6e-a2a86eff0022)
+![Screenshot 2024-11-13 115125](https://github.com/user-attachments/assets/374661b0-b67c-4f4f-bacc-edcec9289fe5)
+
 ## Getting Started
 
 To run this project locally, follow these steps:
