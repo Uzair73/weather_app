@@ -30,7 +30,7 @@ function Header({ onToggleTheme, isDarkMode, temp_search, setTempSearch, set_Dat
         }
       );
     } else {
-      console.log("Geolocation is not supported by this browser.");
+      // console.log("Geolocation is not supported by this browser.");
     }
   };
 

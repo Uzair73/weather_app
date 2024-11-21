@@ -58,7 +58,7 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
     const fetchData = async () => {
       if (latitude && longitude) {
       const res = await days_weather_data(latitude, longitude)
-      console.log("res of data in hourly forecast>>", res.data);
+      // console.log("res of data in hourly forecast>>", res.data);
       const hourlyForecast = res.data.list.slice(0, 5).map(hour => {
         const weather_icons = weather_icon[hour.weather[0].icon] || sunny_pic
         const directions_icons = getWindDirectionIcon(hour.wind.deg)
@@ -72,7 +72,7 @@ const HourlyForecast = ({latitude, longitude, isDarkMode}) => {
           icon_directions: directions_icons
         }
       })
-      console.log("time issues>>",  hourlyForecast);
+      // console.log("time issues>>",  hourlyForecast);
       setForecastData(hourlyForecast.slice(0, 5))
     }
   }

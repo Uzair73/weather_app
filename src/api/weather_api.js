@@ -1,5 +1,7 @@
 import axios from "axios";
-const host = 'http://localhost:3000'
+// const host = 'http://localhost:3000'
+const host = import.meta.env.VITE_BACKEND_HOST;
+
 export const current_weather_api =  async (city)=>{
 const url =  `${host}/weather-forcast?city=${city}&units=metric`
 const res = await axios.get(url)

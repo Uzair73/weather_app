@@ -51,7 +51,7 @@ const Weather_details = ({data_search, isDarkMode}) => {
         const fetch_data = async () => {
             if(data_search){
             const response = await current_weather_api(data_search)
-            console.log("fetch the data in weather_details>>", response.data);
+            // console.log("fetch the data in weather_details>>", response.data);
             const all_icons = weather_icon[response.data.weather[0].icon] || sunny_pic
             setWeatherData({
                 temp: response.data.main.temp,
