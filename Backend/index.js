@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 // Define the allowed origins (localhost for local testing and Vercel for production)
-const allowedOrigins = ['http://localhost:3000', 'https://chill-weather-app.vercel.app'];
+const allowedOrigins = ['https://weather-app-backend-bay.vercel.app', 'https://chill-weather-app.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
