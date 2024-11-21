@@ -89,7 +89,7 @@ const Weather_details = ({data_search, isDarkMode}) => {
                                     <img src={isDarkMode ? sunrise_white_pic : sunrise_pic} alt="sunrise" className='mx-4 max-sm:mx-3 w-[35px]' />
                                     <div className='flex-col'>
                                         <p className='text-md font-bold'>Sunrise</p>
-                                        <p className='text-[#292929] font-semibold w-[70px]'>{weatherData.sunrise}</p>     
+                                        <p className={`${isDarkMode ? "text-white" : "text-[#292929]"} font-semibold w-[70px]`}>{weatherData.sunrise}</p>     
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@ const Weather_details = ({data_search, isDarkMode}) => {
                                     <img src={isDarkMode ? sunset_white_pic : sunset_pic} alt="sunset" className='mx-4 max-sm:mx-3 w-[35px]' />
                                     <div className='flex-col'>
                                         <p className='text-md font-bold'>Sunset</p>
-                                        <p className='font-semibold text-[#292929] w-[75px]'>{weatherData.sunset}</p>
+                                        <p className={`font-semibold ${isDarkMode ? "text-white" : "text-[#292929]"} w-[75px]`}>{weatherData.sunset}</p>
                                     </div>
                                 </div>
                             </div>
